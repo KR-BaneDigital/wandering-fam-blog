@@ -26,7 +26,7 @@ export const siteContent: SiteConfigSchema = {
     name: "Wandering Fam",
     description: "Discover extraordinary family travel experiences that create lifelong memories. Expert guides, luxury destinations, and inspirational stories for families who seek adventure together.",
     url: "https://wanderingfam.com",
-    logoPath: "/wandering-fam-logo.png"
+    logoPath: "/wandering-fam-logo-new.png"
   },
 
   // EDITABLE_HERO: Homepage hero section
