@@ -1,0 +1,71 @@
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { siteConfig } from "@/lib/config"
+import { PostCardHorizontal } from "@/components/blog/post-card-horizontal"
+import type { BlogPost } from "@/lib/blog-data"
+
+interface HeroSectionProps {
+  featuredPost: BlogPost
+  secondaryPosts: BlogPost[]
+}
+
+export function HeroSection({ featuredPost, secondaryPosts }: HeroSectionProps) {
+  return (
+    <section className="border-b border-border bg-card">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 lg:items-start">
+          {/* Hero Text + Featured Post */}
+          <div>
+            <div className="mb-6">
+              <h1 className="mb-3 text-4xl font-bold leading-tight text-foreground sm:text-5xl text-balance">
+                {siteConfig.hero.title}
+              </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+                {siteConfig.hero.subtitle}
+              </p>
+            </div>
+
+            <Link href={`/blog/${featuredPost.slug}`} className="group">
+              <Card className="overflow-hidden border-0 shadow-lg transition-shadow hover:shadow-xl">
+                <div className="aspect-[3/2] overflow-hidden">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <div className="mb-3 flex items-center gap-3">
+                    <Badge variant="secondary" className="bg-primary text-primary-foreground">
+                      {featuredPost.category}
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">{featuredPost.date}</span>
+                  </div>
+                  <h2 className="mb-3 text-2xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors">
+                    {featuredPost.title}
+                  </h2>
+                  <p className="mb-4 text-muted-foreground leading-relaxed">{featuredPost.excerpt}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">{featuredPost.readTime}</span>
+                    <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read Article <ArrowRight className="size-4" />
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+
+          {/* Secondary Posts */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+            {secondaryPosts.map((post) => (
+              <PostCardHorizontal key={post.id} post={post} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
