@@ -1,5 +1,5 @@
 {
-  "name": "{{REPO_NAME}}",
+  "name": "wandering-fam-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {

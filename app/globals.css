@@ -4,100 +4,91 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * COLOR PLACEHOLDERS FOR PROGRAMMATIC GENERATION
+ * WANDERING FAM COLOR SYSTEM
  * 
- * To customize brand colors, replace these three variables programmatically:
- * 
- * LIGHT MODE:
- *   --primary: {{PRIMARY_COLOR}}     (e.g., oklch(0.5 0.2 220) for blue)
- *   --secondary: {{SECONDARY_COLOR}} (e.g., oklch(0.9 0.1 220))
- *   --accent: {{ACCENT_COLOR}}       (e.g., oklch(0.85 0.15 220))
- * 
- * DARK MODE (in .dark section below):
- *   --primary: {{PRIMARY_COLOR_DARK}}
- *   --secondary: {{SECONDARY_COLOR_DARK}}
- *   --accent: {{ACCENT_COLOR_DARK}}
- * 
- * All colors should use oklch() format for consistent color perception.
- * Current values below are defaults (black/grey theme) for development.
+ * Brand Colors:
+ * - Primary (Ocean Blue): #4A90E2 - Trust, adventure, serenity
+ * - Secondary (Turquoise): #50E3C2 - Energy, freshness, tropical vibes  
+ * - Accent (Warm Gold): #F5A623 - Luxury, warmth, sunset moments
+ *
+ * All colors use oklch() format for consistent color perception across devices.
  */
 
 :root {
-  /* Color Scheme - Replace these for brand customization */
-  --background: oklch(1 0 0); /* Pure white */
-  --foreground: oklch(0.2 0 0); /* Dark grey/black */
+  /* Color Scheme - Wandering Fam Light Mode */
+  --background: oklch(0.99 0.005 240); /* Soft blue-white */
+  --foreground: oklch(0.25 0.02 240); /* Deep blue-grey */
   --card: oklch(1 0 0); /* Pure white */
-  --card-foreground: oklch(0.2 0 0);
+  --card-foreground: oklch(0.25 0.02 240);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0 0);
-  --primary: oklch(0.2 0 0); /* PLACEHOLDER: {{PRIMARY_COLOR}} */
-  --primary-foreground: oklch(1 0 0); /* White */
-  --secondary: oklch(0.95 0 0); /* PLACEHOLDER: {{SECONDARY_COLOR}} */
-  --secondary-foreground: oklch(0.2 0 0);
-  --muted: oklch(0.95 0 0); /* Light grey */
-  --muted-foreground: oklch(0.5 0 0); /* Medium grey */
-  --accent: oklch(0.9 0 0); /* PLACEHOLDER: {{ACCENT_COLOR}} */
-  --accent-foreground: oklch(0.2 0 0);
-  --destructive: oklch(0.3 0 0);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0 0); /* Light grey */
-  --input: oklch(0.95 0 0);
-  --ring: oklch(0.2 0 0);
-  --chart-1: oklch(0.3 0 0);
-  --chart-2: oklch(0.4 0 0);
-  --chart-3: oklch(0.5 0 0);
-  --chart-4: oklch(0.6 0 0);
-  --chart-5: oklch(0.7 0 0);
-  --radius: 0.5rem;
-  --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.2 0 0);
-  --sidebar-primary: oklch(0.2 0 0);
+  --popover-foreground: oklch(0.25 0.02 240);
+  --primary: oklch(0.62 0.15 240); /* Ocean Blue #4A90E2 */
+  --primary-foreground: oklch(0.99 0 0); /* White */
+  --secondary: oklch(0.85 0.12 180); /* Turquoise #50E3C2 */
+  --secondary-foreground: oklch(0.25 0.02 240);
+  --muted: oklch(0.96 0.01 240); /* Very light blue-grey */
+  --muted-foreground: oklch(0.55 0.03 240); /* Medium blue-grey */
+  --accent: oklch(0.75 0.15 60); /* Warm Gold #F5A623 */
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.20 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.92 0.01 240); /* Light blue-grey border */
+  --input: oklch(0.96 0.01 240);
+  --ring: oklch(0.62 0.15 240); /* Ocean Blue */
+  --chart-1: oklch(0.62 0.15 240); /* Ocean Blue */
+  --chart-2: oklch(0.85 0.12 180); /* Turquoise */
+  --chart-3: oklch(0.75 0.15 60); /* Warm Gold */
+  --chart-4: oklch(0.70 0.12 200); /* Sky Blue */
+  --chart-5: oklch(0.80 0.10 150); /* Mint */
+  --radius: 0.75rem; /* Slightly more rounded for friendly feel */
+  --sidebar: oklch(0.98 0.005 240);
+  --sidebar-foreground: oklch(0.25 0.02 240);
+  --sidebar-primary: oklch(0.62 0.15 240);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.95 0 0);
-  --sidebar-accent-foreground: oklch(0.2 0 0);
-  --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.7 0 0);
+  --sidebar-accent: oklch(0.96 0.01 240);
+  --sidebar-accent-foreground: oklch(0.25 0.02 240);
+  --sidebar-border: oklch(0.92 0.01 240);
+  --sidebar-ring: oklch(0.75 0.10 240);
 }
 
 .dark {
-  /* Dark Mode Colors - Replace these for brand customization */
-  --background: oklch(0.15 0 0); /* Dark grey/black */
-  --foreground: oklch(0.95 0 0); /* Light grey/white */
-  --card: oklch(0.2 0 0);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.2 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.9 0 0); /* PLACEHOLDER: {{PRIMARY_COLOR_DARK}} */
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.3 0 0); /* PLACEHOLDER: {{SECONDARY_COLOR_DARK}} */
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.3 0 0); /* PLACEHOLDER: {{ACCENT_COLOR_DARK}} */
-  --accent-foreground: oklch(0.95 0 0);
-  --destructive: oklch(0.4 0 0);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.3 0 0);
-  --input: oklch(0.3 0 0);
-  --ring: oklch(0.9 0 0);
-  --chart-1: oklch(0.7 0 0);
-  --chart-2: oklch(0.6 0 0);
-  --chart-3: oklch(0.5 0 0);
-  --chart-4: oklch(0.4 0 0);
-  --chart-5: oklch(0.3 0 0);
-  --sidebar: oklch(0.2 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.9 0 0);
-  --sidebar-primary-foreground: oklch(0.2 0 0);
-  --sidebar-accent: oklch(0.25 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.4 0 0);
+  /* Dark Mode Colors - Wandering Fam */
+  --background: oklch(0.18 0.02 240); /* Deep blue-black */
+  --foreground: oklch(0.95 0.01 240); /* Soft white with blue tint */
+  --card: oklch(0.22 0.02 240);
+  --card-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.22 0.02 240);
+  --popover-foreground: oklch(0.95 0.01 240);
+  --primary: oklch(0.70 0.15 240); /* Lighter Ocean Blue for dark mode */
+  --primary-foreground: oklch(0.18 0.02 240);
+  --secondary: oklch(0.75 0.12 180); /* Lighter Turquoise */
+  --secondary-foreground: oklch(0.18 0.02 240);
+  --muted: oklch(0.28 0.02 240);
+  --muted-foreground: oklch(0.65 0.03 240);
+  --accent: oklch(0.80 0.15 60); /* Lighter Warm Gold */
+  --accent-foreground: oklch(0.18 0.02 240);
+  --destructive: oklch(0.50 0.20 25);
+  --destructive-foreground: oklch(0.95 0.01 240);
+  --border: oklch(0.32 0.02 240);
+  --input: oklch(0.28 0.02 240);
+  --ring: oklch(0.70 0.15 240);
+  --chart-1: oklch(0.70 0.15 240);
+  --chart-2: oklch(0.75 0.12 180);
+  --chart-3: oklch(0.80 0.15 60);
+  --chart-4: oklch(0.65 0.12 200);
+  --chart-5: oklch(0.70 0.10 150);
+  --sidebar: oklch(0.22 0.02 240);
+  --sidebar-foreground: oklch(0.95 0.01 240);
+  --sidebar-primary: oklch(0.70 0.15 240);
+  --sidebar-primary-foreground: oklch(0.22 0.02 240);
+  --sidebar-accent: oklch(0.28 0.02 240);
+  --sidebar-accent-foreground: oklch(0.95 0.01 240);
+  --sidebar-border: oklch(0.28 0.02 240);
+  --sidebar-ring: oklch(0.45 0.10 240);
 }
 
-/* Updated font configuration for Montserrat, Open Sans, and Roboto Slab */
+/* Wandering Fam Font Configuration */
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Roboto Slab", ui-serif, Georgia, serif;
@@ -147,7 +138,7 @@
   body {
     @apply bg-background text-foreground;
   }
-  /* Apply heading font to all headings */
+  /* Apply Montserrat to all headings for Wandering Fam brand */
   h1,
   h2,
   h3,
@@ -155,5 +146,17 @@
   h5,
   h6 {
     font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Body text uses Open Sans */
+  p, li, span {
+    font-family: var(--font-sans);
+  }
+  
+  /* Accent font for special elements */
+  .font-accent {
+    font-family: var(--font-serif);
   }
 }

@@ -64,13 +64,12 @@ export default function BlogIndexPage() {
       <BlogHeader />
 
       {/* Hero Section */}
-      <section className="border-b border-border bg-card">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="border-b border-border bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="mb-4 text-4xl font-bold text-foreground lg:text-5xl text-balance">Health & Wellness Blog</h1>
+            <h1 className="mb-4 text-4xl font-bold text-foreground lg:text-5xl text-balance">Family Travel Stories & Guides</h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground text-pretty">
-              Discover expert insights, practical guides, and in-depth research to help your family live a healthier,
-              chemical-free life.
+              Explore our collection of inspiring travel stories, expert destination guides, and practical tips to help your family create extraordinary adventures around the world.
             </p>
           </div>
         </div>
@@ -85,7 +84,7 @@ export default function BlogIndexPage() {
               <Search className="absolute left-3 top-1/2 size-5 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search articles..."
+                placeholder="Search destinations, activities, tips..."
                 className="pl-10"
                 value={searchQuery}
                 onChange={(e) => {
@@ -125,7 +124,7 @@ export default function BlogIndexPage() {
                 setCurrentPage(1)
               }}
             >
-              All Articles
+              All Stories
             </Button>
             {categories.map((category) => (
               <Button
@@ -144,7 +143,7 @@ export default function BlogIndexPage() {
 
           {/* Results Count */}
           <div className="mt-4 text-sm text-muted-foreground">
-            Showing {filteredAndSortedPosts.length} {filteredAndSortedPosts.length === 1 ? "article" : "articles"}
+            Showing {filteredAndSortedPosts.length} {filteredAndSortedPosts.length === 1 ? "story" : "stories"}
             {searchQuery && ` for "${searchQuery}"`}
           </div>
         </div>
@@ -158,17 +157,17 @@ export default function BlogIndexPage() {
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {paginatedPosts.map((post) => (
                   <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-                    <Card className="overflow-hidden transition-shadow hover:shadow-lg h-full flex flex-col">
+                    <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col">
                       <div className="aspect-[16/9] overflow-hidden">
                         <img
                           src={post.image || "/placeholder.svg"}
                           alt={post.title}
-                          className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
                       <CardContent className="flex flex-col flex-1 p-5">
                         <div className="mb-3 flex items-center gap-3">
-                          <Badge variant="secondary">{post.category}</Badge>
+                          <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">{post.category}</Badge>
                           <span className="text-xs text-muted-foreground">{post.date}</span>
                         </div>
                         <h3 className="mb-3 text-lg font-semibold leading-tight text-foreground group-hover:text-primary transition-colors line-clamp-2">
@@ -182,7 +181,7 @@ export default function BlogIndexPage() {
                             <Clock className="size-4" />
                             <span>{post.readTime}</span>
                           </div>
-                          <span className="inline-flex items-center gap-1 font-medium text-primary">
+                          <span className="inline-flex items-center gap-1 font-medium text-primary group-hover:gap-2 transition-all">
                             Read More <ArrowRight className="size-4" />
                           </span>
                         </div>
@@ -234,9 +233,9 @@ export default function BlogIndexPage() {
           ) : (
             <div className="py-12 text-center">
               <Filter className="mx-auto size-12 text-muted-foreground mb-4" />
-              <h3 className="text-xl font-semibold text-foreground mb-2">No articles found</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-2">No stories found</h3>
               <p className="text-muted-foreground mb-6">
-                Try adjusting your search or filter criteria to find what you're looking for.
+                Try adjusting your search or filter criteria to discover more family travel adventures.
               </p>
               <Button
                 variant="outline"

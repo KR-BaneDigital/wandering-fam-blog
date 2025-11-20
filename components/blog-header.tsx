@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { Compass } from "lucide-react"
 
 export function BlogHeader() {
   const [email, setEmail] = useState("")
@@ -35,70 +36,78 @@ export function BlogHeader() {
   }
 
   return (
-    <header className="border-b border-border bg-card">
+    <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="size-8" />
-            <span className="text-xl font-semibold text-foreground">{siteConfig.brand.name}</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="relative">
+              <Compass className="size-8 text-primary group-hover:rotate-45 transition-transform duration-500" />
+            </div>
+            <span className="text-xl font-bold text-foreground tracking-tight">{siteConfig.brand.name}</span>
           </Link>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
             <Link
-              href="/category/1"
-              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
+              href="/category/luxury-destinations"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Category 1
+              Luxury Destinations
             </Link>
             <Link
-              href="/category/2"
-              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
+              href="/category/family-activities"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Category 2
+              Family Activities
             </Link>
             <Link
-              href="/category/3"
-              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
+              href="/category/travel-tips"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Category 3
+              Travel Tips
             </Link>
             <Link
               href="/blog"
-              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Blog
+              All Stories
             </Link>
           </nav>
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
-              <Button variant="default" size="sm" className="hidden md:inline-flex">
-                Subscribe
+              <Button variant="default" size="sm" className="hidden md:inline-flex bg-primary hover:bg-primary/90">
+                Join Community
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
-                <DialogTitle>Subscribe to Our Newsletter</DialogTitle>
-                <DialogDescription>
-                  Get the latest articles and updates delivered directly to your inbox.
+                <DialogTitle className="text-2xl">Join the Wandering Fam Community</DialogTitle>
+                <DialogDescription className="text-base">
+                  Get exclusive family travel tips, destination guides, and special offers delivered to your inbox.
                 </DialogDescription>
               </DialogHeader>
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <Input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     className="bg-background"
                   />
-                  <Button type="submit" className="w-full">
-                    Subscribe
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                    Subscribe Now
                   </Button>
+                  <p className="text-xs text-muted-foreground text-center">
+                    Unsubscribe anytime. We respect your privacy.
+                  </p>
                 </form>
               ) : (
                 <div className="py-8 text-center">
-                  <h3 className="text-lg font-semibold mb-2">Thank You!</h3>
-                  <p className="text-sm text-muted-foreground">You've successfully subscribed to our newsletter.</p>
+                  <div className="mb-4 mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Compass className="size-8 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Welcome to the Family!</h3>
+                  <p className="text-sm text-muted-foreground">You've successfully joined our travel community.</p>
                 </div>
               )}
             </DialogContent>
