@@ -48,7 +48,6 @@ export function BlogHeader() {
                 height={40}
                 className="object-contain transition-transform duration-300 group-hover:scale-110"
                 priority
-                unoptimized
               />
             </div>
             <span className="text-xl font-bold text-foreground tracking-tight">{siteConfig.brand.name}</span>
