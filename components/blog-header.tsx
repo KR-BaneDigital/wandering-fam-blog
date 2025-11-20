@@ -40,8 +40,15 @@ export function BlogHeader() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <Compass className="size-8 text-primary group-hover:rotate-45 transition-transform duration-500" />
+            <div className="relative w-10 h-10">
+              <Image
+                src={siteConfig.brand.logoPath}
+                alt={`${siteConfig.brand.name} logo`}
+                width={40}
+                height={40}
+                className="object-contain transition-transform duration-300 group-hover:scale-110"
+                priority
+              />
             </div>
             <span className="text-xl font-bold text-foreground tracking-tight">{siteConfig.brand.name}</span>
           </Link>
