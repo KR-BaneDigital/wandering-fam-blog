@@ -16,7 +16,7 @@ export default function HomePage() {
   // Get posts for different sections
   const featuredPost = blogPosts[0]
   const secondaryPosts = blogPosts.slice(1, 4)
-  const topArticles = blogPosts.slice(0, 6)
+  const topArticles = blogPosts.slice(9, 15)  // Posts 9-14 (Featured Articles)
   const recentPosts = blogPosts.slice(4, 8)
 
   return (
